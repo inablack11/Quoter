@@ -3,7 +3,7 @@
               android:id="@+id/layout"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:layout_margin="8dip"
+    android:layout_margin="2dip"
               android:background="@drawable/my_shape"
     >
 
@@ -13,8 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:gravity="center_horizontal|center_vertical"
             android:layout_margin="4dip"
+        android:gravity="center_horizontal|center_vertical"
             android:text="Static Text" >
     </TextView>
 

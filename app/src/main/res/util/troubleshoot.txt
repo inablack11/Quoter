@@ -1,0 +1,33 @@
+06-04 17:34:27.754    2213-2213/com.cmu.quoter E/AndroidRuntime﹕ FATAL EXCEPTION: main
+    Process: com.cmu.quoter, PID: 2213
+    java.lang.RuntimeException: Unable to start activity ComponentInfo{com.cmu.quoter/com.cmu.quoter.MainActivity}: java.lang.RuntimeException: Your content must have a ListView whose id attribute is 'android.R.id.list'
+            at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2325)
+            at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2390)
+            at android.app.ActivityThread.access$800(ActivityThread.java:151)
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1303)
+            at android.os.Handler.dispatchMessage(Handler.java:102)
+            at android.os.Looper.loop(Looper.java:135)
+            at android.app.ActivityThread.main(ActivityThread.java:5257)
+            at java.lang.reflect.Method.invoke(Native Method)
+            at java.lang.reflect.Method.invoke(Method.java:372)
+            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:903)
+            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:698)
+     Caused by: java.lang.RuntimeException: Your content must have a ListView whose id attribute is 'android.R.id.list'
+            at android.app.ListActivity.onContentChanged(ListActivity.java:243)
+            at com.android.internal.policy.impl.PhoneWindow.setContentView(PhoneWindow.java:382)
+            at android.app.Activity.setContentView(Activity.java:2145)
+            at com.cmu.quoter.MainActivity.onCreate(MainActivity.java:27)
+            at android.app.Activity.performCreate(Activity.java:5990)
+            at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1106)
+            at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2278)
+            at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2390)
+            at android.app.ActivityThread.access$800(ActivityThread.java:151)
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1303)
+            at android.os.Handler.dispatchMessage(Handler.java:102)
+            at android.os.Looper.loop(Looper.java:135)
+            at android.app.ActivityThread.main(ActivityThread.java:5257)
+            at java.lang.reflect.Method.invoke(Native Method)
+            at java.lang.reflect.Method.invoke(Method.java:372)
+            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:903)
+            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:698)
+06-04 17:35:05.856    2213-2220/com.cmu.quoter W/art﹕ Suspending all threads took: 5.703ms

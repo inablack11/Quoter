@@ -4,8 +4,8 @@ package com.cmu.quoter;
  * Created by inablack11 on 5/31/2015.
  */
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +17,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends Activity {
     private QuotesDataSource datasource;
     private QuotesListAdapter adapter;
 
@@ -31,8 +31,8 @@ public class MainActivity extends ListActivity {
 
         List<Quote> values = datasource.getAllQuotes();
 
-        adapter.addAll(values);
         initListViewAdapter();
+        adapter.addAll(values);
 
     }
 
@@ -44,7 +44,7 @@ public class MainActivity extends ListActivity {
 
     private void initListViewAdapter() {
         adapter = new QuotesListAdapter(this, R.layout.list_item, new ArrayList<Quote>());
-        ListView quotesListView = (ListView) findViewById(R.id.quotes_list_view);
+        ListView quotesListView = (ListView) findViewById(R.id.list);
         quotesListView.setAdapter(adapter);
     }
 
