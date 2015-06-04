@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -26,12 +25,22 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText editText = (EditText) findViewById(R.id.quote_text);
+
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    onAdd();
+                }
+            }
+        });
+
         datasource = new QuotesDataSource(this);
         datasource.open();
 
-        List<Quote> values = datasource.getAllQuotes();
-
         initListViewAdapter();
+
+        List<Quote> values = datasource.getAllQuotes();
         adapter.addAll(values);
 
     }
@@ -54,7 +63,7 @@ public class MainActivity extends Activity {
 
         switch (view.getId()) {
             case R.id.add:
-                onAdd(adapter);
+                onAdd();
                 break;
 
         }
@@ -68,7 +77,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void onAdd(final ArrayAdapter<Quote> adapter){
+    public void onAdd() {
 
         System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -80,8 +89,7 @@ public class MainActivity extends Activity {
         alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Log.d("Text entered", input.getText().toString());
-                Quote comment = null;
-                comment = datasource.createQuote(input.getText().toString());
+                Quote comment = datasource.createQuote(input.getText().toString());
                 adapter.add(comment);
             }
         });
