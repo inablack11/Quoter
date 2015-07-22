@@ -53,6 +53,15 @@ public class QuotesDataSource {
                 + " = " + id, null);
     }
 
+
+    public void editQuote(Quote quote) {
+        long id = quote.getId();
+        System.out.println("Quote updated with id: " + id);
+        ContentValues cv = new ContentValues();
+        cv.put(SQLiteHelper.COLUMN_QUOTE, quote.getQuote());
+        database.update(SQLiteHelper.TABLE_QUOTES, cv, SQLiteHelper.COLUMN_ID + " = " + id, null);
+    }
+
     public List<Quote> getAllQuotes() {
         List<Quote> quotes = new ArrayList<Quote>();
 

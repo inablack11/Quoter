@@ -12,14 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.util.List;
 
 public class QuotesListAdapter extends ArrayAdapter<Quote> {
-
-    protected static final String LOG_TAG = QuotesListAdapter.class.getSimpleName();
 
     private List<Quote> items;
     private int layoutResourceId;
@@ -45,10 +43,15 @@ public class QuotesListAdapter extends ArrayAdapter<Quote> {
         holder.removePaymentButton = (ImageButton) row.findViewById(R.id.remove_quote);
         holder.removePaymentButton.setTag(holder.quote);
 
-        holder.name = (TextView) row.findViewById(R.id.quote_text);
+        holder.name = (EditText) row.findViewById(R.id.quote_text);
+        holder.name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    onEdit();
+                }
+            }
+        });
         setNameTextChangeListener(holder);
-//        holder.value = (TextView)row.findViewById(R.id.atomPay_value);
-//        setValueTextListeners(holder);
 
         row.setTag(holder);
 
@@ -80,9 +83,13 @@ public class QuotesListAdapter extends ArrayAdapter<Quote> {
 
     public static class QuoteHolder {
         Quote quote;
-        TextView name;
+        EditText name;
         ImageButton removePaymentButton;
     }
+    public void onEdit() {
 
+        System.out.println("edit item");
+//        Quote comment = datasource.createQuote(input.getText().toString());
+    }
 
 }

@@ -25,16 +25,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText editText = (EditText) findViewById(R.id.quote_text);
-
-        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    onAdd();
-                }
-            }
-        });
-
         datasource = new QuotesDataSource(this);
         datasource.open();
 
